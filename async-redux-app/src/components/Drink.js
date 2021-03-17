@@ -14,7 +14,7 @@ const useStyles = makeStyles({
 
 const Drink = ({ drink }) => {
 
-    const {strDrink, strDrinkThumb} = drink;
+    const {strDrink, strDrinkThumb, strAlcoholic, strGlass} = drink;
 
     const classes = useStyles();
 
@@ -25,6 +25,8 @@ const Drink = ({ drink }) => {
     </CardActionArea>
     <CardContent>
     <Typography>{strDrink}</Typography>
+    <Typography>{strAlcoholic ? strAlcoholic : "Non-alcoholic"}</Typography>
+    <Typography>Glass: {strGlass}</Typography>
     </CardContent>
     </Card>
     )

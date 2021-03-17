@@ -3,20 +3,41 @@ import { connect } from "react-redux";
 
 import Drink from "./Drink"
 
-import { Grid, Typography } from "@material-ui/core"
+import { Grid, Typography, makeStyles } from "@material-ui/core"
+
+const useStyles = makeStyles({
+    isLoading: {
+        marginBottom: "2%"
+    },
+    error: {
+        marginBottom: "2%",
+        color: "red"
+    }
+})
 
 const Drinks = (props) => {
+
+    const classes = useStyles();
+
     return (
+    <>
+    <Grid
+    container
+    direction="column"
+    alignItems="center"
+    >
+    {props.isLoading ? <Typography className={classes.isLoading} varitant="body1">Loading Drinks...</Typography> : null}
+    {props.error ? <Typography className={classes.error} >{props.error}</Typography> : null}
+    </Grid>
     <Grid
     container
     direction="row"
     justify="space-evenly">
-    {props.isLoading ? <Typography>Loading Drinks...</Typography> : null}
-    {props.error ? <Typography>{props.error}</Typography> : null}
     {props.drinks.map(drink => (
         <Drink key={drink.idDrink} drink={drink}/>
     ))}
     </Grid>
+    </>
     )
 }
 
