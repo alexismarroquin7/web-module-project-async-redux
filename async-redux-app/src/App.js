@@ -1,6 +1,6 @@
 import Form from "./components/Form"
 import Drinks from "./components/Drinks"
-import {Grid, makeStyles} from "@material-ui/core"
+import {Grid, makeStyles, Typography} from "@material-ui/core"
 
 const useStyles = makeStyles({
   root: {
@@ -18,8 +18,9 @@ function App() {
     container
     direction="column"
     alignItems="center"
+    
     >
-      <h1>Search For A Drink from TheCocktailDB</h1>
+      <Typography variant="h3">Search For A Drink from TheCocktailDB</Typography>
       <Form />
       <Drinks />
     </Grid>
