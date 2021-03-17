@@ -25,7 +25,7 @@ const Drink = ({ drink }) => {
     </CardActionArea>
     <CardContent>
     <Typography>{strDrink}</Typography>
-    <Typography>{strAlcoholic ? strAlcoholic : "Non-alcoholic"}</Typography>
+    <Typography>{strAlcoholic}</Typography>
     <Typography>Glass: {strGlass}</Typography>
     </CardContent>
     </Card>
