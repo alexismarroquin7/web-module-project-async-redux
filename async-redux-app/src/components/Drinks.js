@@ -19,7 +19,8 @@ const mapStateToProps = (state) => {
     return {
         drinks: state.drinks,
         isLoading: state.isLoading,
-        error: state.error
+        error: state.error,
+        drinkName: state.drinkName
     }
 }
 
