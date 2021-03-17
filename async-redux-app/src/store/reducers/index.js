@@ -1,6 +1,7 @@
 import {FETCH_DRINKS_START, FETCH_DRINKS_SUCCESS, FETCH_DRINKS_FAIL} from "../actions";
 
 const initialState = {
+    drinkName: "",
     drinks: [
         {
             "idDrink": "11007",

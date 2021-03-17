@@ -1,4 +1,5 @@
 import Form from "./components/Form"
+import Drinks from "./components/Drinks"
 import {makeStyles} from "@material-ui/core"
 
 const useStyles = makeStyles({
@@ -15,6 +16,7 @@ function App() {
     <div className={classes.root}>
       <h1>Search For A Drink from TheCocktailDB</h1>
       <Form />
+      <Drinks />
     </div>
   );
 }

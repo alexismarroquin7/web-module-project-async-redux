@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
 import { TextField, Button } from "@material-ui/core";
 
-const Form = () => {
+import { fetchDrinks } from "../store/actions"
+
+const Form = (props) => {
 
     const [searchTerm, setSearchTerm] = useState('');
 
@@ -9,18 +12,29 @@ const Form = () => {
         setSearchTerm(e.target.value)
     }
 
+    const handleSubmit = e => {
+        e.preventDefault();
+        props.fetchDrinks(searchTerm)
+    }
+
     return (
     <>
-    <form>
+    <form onSubmit={handleSubmit}>
         <TextField 
             type="text"
             value={searchTerm}
             onChange={handleChange}
         />
-        <Button>Fetch Drinks</Button>
+        <Button type="submit">Fetch Drinks</Button>
     </form>
     </>
     )
 }
 
-export default Form;
+const mapStateToProps = (state) => {
+    return {
+        drinkName: state.drinkName
+    }
+}
+
+export default connect(mapStateToProps, { fetchDrinks })(Form);
