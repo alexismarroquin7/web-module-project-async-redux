@@ -6,7 +6,8 @@ import Drink from "./Drink"
 const Drinks = (props) => {
     return (
     <>
-    <p>Drinks</p>
+    {props.isLoading ? <h3>Loading Drinks...</h3> : null}
+    {props.error ? <h3>{props.error}</h3> : null}
     {props.drinks.map(drink => (
         <Drink drink={drink}/>
     ))}
@@ -16,7 +17,9 @@ const Drinks = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        drinks: state.drinks
+        drinks: state.drinks,
+        isLoading: state.isLoading,
+        error: state.error
     }
 }
 

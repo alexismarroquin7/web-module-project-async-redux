@@ -12,6 +12,6 @@ export const fetchDrinks = (drinkName = "margarita") => dispatch => {
             dispatch({ type: FETCH_DRINKS_SUCCESS, payload: {drinksData: res.data.drinks, drinkName: drinkName} })
         })
         .catch(err => {
-            console.log(err)
+            dispatch({ type: FETCH_DRINKS_FAIL, payload: err.message })
         })
 }

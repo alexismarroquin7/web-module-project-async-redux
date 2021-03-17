@@ -1,8 +1,6 @@
 import React from "react"
 
-const Drink = (props) => {
-    
-    const {drink} = props;
+const Drink = ({ drink }) => {
 
     return (
     <>
