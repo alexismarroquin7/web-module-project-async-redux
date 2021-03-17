@@ -15,6 +15,14 @@ export const reducer = (state = initialState, action) => {
                 isLoading: true
             }
         case FETCH_DRINKS_SUCCESS:
+            if(action.payload.drinksData === null){
+                return {
+                    ...state,
+                    drinks: [],
+                    isLoading: false,
+                    error: `No drinks named '${action.payload.drinkName}' were found.`
+                }
+            }
             return {
                 ...state,
                 isLoading: false,

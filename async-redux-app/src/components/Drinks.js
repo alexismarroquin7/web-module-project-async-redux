@@ -9,7 +9,7 @@ const Drinks = (props) => {
     {props.isLoading ? <h3>Loading Drinks...</h3> : null}
     {props.error ? <h3>{props.error}</h3> : null}
     {props.drinks.map(drink => (
-        <Drink drink={drink}/>
+        <Drink key={drink.idDrink} drink={drink}/>
     ))}
     </>
     )
