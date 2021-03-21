@@ -10,7 +10,9 @@ export const fetchDrinks = (drinkName) => dispatch => {
         .get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drinkName}`)
         .then(res => {
             console.log("drinkName:", drinkName)
-            dispatch({ type: FETCH_DRINKS_SUCCESS, payload: {drinksData: res.data.drinks, drinkName: drinkName} })
+            res.data.drinks !== null 
+                ? dispatch({ type: FETCH_DRINKS_SUCCESS, payload: {drinksData: res.data.drinks, drinkName: drinkName} }) 
+                : dispatch({ type: FETCH_DRINKS_FAIL, payload: `No drinks named '${drinkName}' were found.` })
         })
         .catch(err => {
             dispatch({ type: FETCH_DRINKS_FAIL, payload: err.message })
