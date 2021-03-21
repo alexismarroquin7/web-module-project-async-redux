@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
 import Drink from "./Drink"
+
+import { fetchDrinks } from "../store/actions"
 
 import { Grid, Typography, makeStyles } from "@material-ui/core"
 
@@ -16,6 +18,10 @@ const useStyles = makeStyles({
 })
 
 const Drinks = (props) => {
+
+    useEffect(() => {
+        props.fetchDrinks(`margarita`);
+    }, []);
 
     const classes = useStyles();
 
@@ -50,4 +56,10 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(Drinks);
+const mapDispatchToProps = () => {
+    return {
+        fetchDrinks
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps())(Drinks);
